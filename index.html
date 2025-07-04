@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cakeshop</title>
+  <style>
+    :root {
+      --dark: #5a1215;
+      --light: #fffaf7;
+      --accent: #f7c59f;
+      --hover: #e6b48a;
+      --text-dark: #2f1b0c;
+    }
+
+    dlsfmkdlmf
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'cursive', 'Lucida Handwriting';
+      background-color: var(--light);
+      color: var(--text-dark);
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--dark);
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+    }
+
+    .logo {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hamburger menu */
+    .nav-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        background-color: var(--dark);
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        display: none;
+        padding: 20px 0;
+        z-index: 999;
+      }
+
+      .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .nav-toggle:checked + .hamburger + .nav-links {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('https://static.vecteezy.com/system/resources/previews/026/516/181/large_2x/delicious-red-velvet-cake-dark-background-with-empty-space-for-text-free-photo.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      padding: 40px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      margin-bottom: 40px;
+    }
+
+    .hero a.button {
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .hero a.button:hover {
+      background-color: var(--hover);
+    }
+
+    /* Menu Section */
+    .menu {
+      padding: 60px 40px;
+      background-color: #fff4ec;
+      text-align: center;
+    }
+
+    .menu h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .gallery-intro {
+      font-size: 18px;
+      color: #6b3e2e;
+      margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item h3 {
+      font-size: 20px;
+      margin: 15px 0 5px;
+      color: var(--text-dark);
+    }
+
+    .price {
+      font-weight: bold;
+      color: #f7a07a;
+      margin-bottom: 15px;
+    }
+
+    .buy-button {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 8px 16px;
+      background-color: var(--accent);
+      color: var(--dark);
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background-color: var(--hover);
+    }
+
+    .contact {
+      padding: 60px 40px;
+      background-color: #fff4ec;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .about {
+      padding: 60px 40px;
+      background-color: #fffaf7;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Cakeshop</div>
+
+    <!-- Hidden toggle + hamburger -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger">&#9776;</label>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <h1>Delicious Cakes for Every Occasion</h1>
+    <a href="#" class="button">Order Now</a>
+  </section>
+
+  <section class="menu" id="menu">
+    <h2>Our Cakes</h2>
+    <p class="gallery-intro">Baked with love and crafted to perfection. Browse our favorites below.</p>
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1603079847399-5cfd2f6f149c" alt="Chocolate cake with sprinkles">
+        <h3>Chocolate Delight</h3>
+        <p class="price">$25</p>
+        <a href="#" class="buy-button">Buy Now</a>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Strawberry cake with frosting">
+        <h3>Strawberry Bliss</h3>
+        <p class="price">$30</p>
+        <a href="#" class="buy-button">Buy Now</a>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1620840961487-b9cf00c9762b" alt="Vanilla cake with berries">
+        <h3>Vanilla Dream</h3>
+        <p class="price">$22</p>
+        <a href="#" class="buy-button">Buy Now</a>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1620416262195-fd36b768a8e2" alt="Red velvet cake">
+        <h3>Red Velvet</h3>
+        <p class="price">$28</p>
+        <a href="#" class="buy-button">Buy Now</a>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1605477732128-38e66b9f1d6a" alt="Lemon cake with glaze">
+        <h3>Lemon Spark</h3>
+        <p class="price">$24</p>
+        <a href="#" class="buy-button">Buy Now</a>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1578985545062-4d1a2b3e3b93" alt="Blueberry cake">
+        <h3>Blueberry Burst</h3>
+        <p class="price">$29</p>
+        <a href="#" class="buy-button">Buy Now</a>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1617842051499-65ce9086b67b" alt="Carrot cake with nuts">
+        <h3>Classic Carrot</h3>
+        <p class="price">$26</p>
+        <a href="#" class="buy-button">Buy Now</a>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1516910382165-6f4e3c0b67b7" alt="Tiramisu cake">
+        <h3>Tiramisu</h3>
+        <p class="price">$32</p>
+        <a href="#" class="buy-button">Buy Now</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p class="gallery-intro">
+      At Cakeshop, we believe every celebration deserves a touch of sweetness. 
+      Our passion is crafting cakes that not only look beautiful but taste unforgettable. 
+      From birthdays to weddings, our bakers put love into every layer.
+    </p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p class="gallery-intro">Questions or custom orders? Reach out to us at 
+      <strong>hello@cakeshop.com</strong> or visit our store at 
+      <strong>123 Sweet Street, Caketown.</strong>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cakeshop. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
